@@ -1,1 +1,8 @@
+#site setting
+title: Blog Of Urt1rs
+SEOTitle: Personal blog of Programming learn | Hongzhi Liu
+description: "A step everyday makes great"
+baseurl: ""
+url: "https://urt1rsliu.github.io"
+email: 134071134075@163.com
 theme: jekyll-theme-architect
