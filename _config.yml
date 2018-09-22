@@ -1,7 +1,7 @@
 # Site settings
 title: Lazy makes nothing archieved
 SEOTitle: 刘鸿志的博客 | Blog of Jim Liu
-header-img: img/home-bg.jpg
+header-img: images/bg/bg_homepage_header.jpg
 email: liu13407134075@gmail.com
 description: "Android开发，前端 | Web & Mobile Lover，Software Engineer | 这里是 Jim 的个人博客，a step everyday makes farther away!"
 keyword: "Android | Gvoovy | Kotlin"
@@ -20,6 +20,17 @@ twitter_username:    Jim
 #facebook_username:   Jim
 #linkedin_username:  firstname-lastname-idxxxx
 
+
+
+# Build settings
+# from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
+highlighter: rouge
+permalink: pretty
+paginate: 7
+exclude: ["README.md"]
+anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
+# If you have timezone issue (e.g. #68) in China, uncomment to use this:
+#timezone: CN  
 
 
 # Gems
@@ -51,7 +62,7 @@ netease_comment: false
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "谁说从今天开始努力，<br>明天不会更好？"
-sidebar-avatar: /img/avatar-hux-ny.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /images/bg/bg_slidebar.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 # Featured Tags
