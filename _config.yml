@@ -1,10 +1,10 @@
 # Site settings
-title: Jim Liu Blog
-SEOTitle: 刘鸿志的博客 | blog of Jim Liu
+title: Jim Liu
+SEOTitle: github blog of Jim Liu
 header-img: img/home-bg.jpg
-email: huxpro@gmail.com
-description: "Web & Mobile Lover，Software Engineer | 这里是 刘鸿志 的个人博客，与你一起发现更大的世界。"
-keyword: "Android | Groovy | kotlin"
+email: liu13407134075@gmail.com
+description: "Android | Jim Liu , 刘鸿志 | Software Engineer | 。"
+keyword: "Android | Kotlin | Gradle plugin"
 url: "https://urt1rsliu.github.io/"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
@@ -13,11 +13,11 @@ future: true
 
 # SNS settings
 RSS: false
-weibo_username:     huxpro
-zhihu_username:     huxpro
-github_username:    huxpro
-twitter_username:   huxpro
-#facebook_username:  huxpro
+#weibo_username:     Urt1rs
+#zhihu_username:     Urt1rs
+#github_username:    Urt1rs
+#twitter_username:   Urt1rs
+#facebook_username:  Urt1rs
 #linkedin_username:  firstname-lastname-idxxxx
 
 
@@ -53,17 +53,16 @@ kramdown:
 
 
 # Disqus settings
-disqus_username: hux
+disqus_username: Jim Liu
 
 # Netease settings
 netease_comment: false
 
 
-
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "A Step Everyday makes farther away"
-sidebar-avatar: /img/avatar-hux-ny.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "A step everyday makes farther away!"
+sidebar-avatar: /img/avatar_slidebar.jpg      # use absolute URL, seeing it's used in both `/` and `/about/` 
 
 
 
@@ -77,42 +76,3 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 chrome-tab-theme-color: "#000000"
 service-worker: true
 
-
-
-# Friends
-friends: [
-    {
-    #     title: "Su",
-    #     href: "http://su.gallery/"
-    # },{
-        title: "乱序",
-        href: "http://mida.re/"
-    },{
-        title: "前端外刊评论",
-        href: "http://qianduan.guru/"
-    },{
-        title: "天镶的博客",
-        href: "http://lingyu.wang/"
-    },{
-        title: "Luke 的自留地",
-        href: "http://hmqk1995.github.io"
-    },{
-        title: "Ebn's Blog",
-        href: "http://ebnbin.com/"
-    },{
-        title: "SmdCn's Blog",
-        href: "http://blog.smdcn.net"
-    },{
-        title: "David's Game",
-        href: "https://www.ruoyaowu.com/"
-    },{
-        title: "DHong Say",
-        href: "http://dhong.co"
-    },{
-        title: "尹峰以为",
-        href: "http://ingf.github.io/"
-    },{
-        title: "解旻的博客",
-        href: "http://xieminis.me/"
-    }
-]
