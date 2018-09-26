@@ -1,10 +1,8 @@
 ---
-layout:    post
-title:       " android文件内部存储和外部存储 "
-date:  2018-09-18
-author:  "Jim Liu"
-tags:   
-    - Android 
+layout: post
+title:  "Android内部存储和外部存储"
+date:   2018-09-18 9:18:33 +0800
+categories: Android
 ---
 
 ### 内部存储
