@@ -1,0 +1,104 @@
+---
+layout: post
+title:  "Gradle总结"
+date:   2018-09-27 9:57:23 +0800
+categories: Android  Gradle
+---
+
+<h3>关于gradle</h3>
+&emsp;&emsp;.gradle文件是一种build script（构建脚本），android项目的构建过程全部由.gradle完成。gradle中有3种类型的build script: 
+
+- build script
+- init script
+- setting script  
+
+&emsp;&emsp; **每种Build Script本质都是对某种类型的delegate（构建对象）进行配置，可以把每个Build Script理解为一个groovy闭包，执行这些script都是通过不同的delegate执行相应的闭包函数**。Build Script分别对应3种类型的delegate：  
+
+- Project
+- Gradle
+- Settings
+
+&emsp;&emsp; **当然，这些scrip中的函数的执行并不是顺序执行的**。
+
+<h5>Init Script</h5>
+init script并不常用，通常为各种init.gradle文件。它可以对当前的build做出一些全局配置，比如全局依赖，何处寻找插件等。可以通过如下方式指定init script  。
+
+- 通过在命令行里指定gradle -I/--init-script  (Path  To Init.gradle)
+- 在USER_HOME/.gradle 或者 USER_HOME/.gradle/init.d目录下，放置init.gradle文件
+- 将init.gradle放置在GRADLE_HOME/init.d/目录下  
+
+
+<h5> Setting Script</h5>
+&emsp;&emsp; 每个Project的根目录下的Settings.gradle都是Setting Script。多module的project下，Settings.gradle是必须的。Settings Script的delegate是Settings对象，Settings对象的成员函数如下：
+
+![Settings API](../img/image_post/gradle/settings API.PNG)
+<center>org.gradle.api.initialization.Settings的成员</center>
+&emsp;&emsp; 可以看到其中的`include()`函数十分熟悉，没错，在settings.gradle中include ':app'导入module时，就是调用Settings对象的该方法。include函数参数为String数组，因此可以接受多个module，这个函数的意义就是指明哪些module参与project的构建。  
+<h5>Build Script</h5>
+&emsp;&emsp;最常见的就是各个目录下的build.gradle文件，观察对应的delegate对象的API，发现常用的函数有`apply()`、`dependencies()`、`buildscript()`、`repositories()`等。他们也都是将对象或闭包作为参数，然后delegate调用，如下:
+```groovy
+//常见的build.gradle文件
+
+apply plugin:'maven'
+apply plugin:'java'
+apply plugin:'groovy'
+
+repositories{
+    geogle()
+    jcenter()
+    mavenLocal()
+}
+
+buildScript{
+    xxxxxx
+}
+
+dependencies{
+    implementation xxxxx
+}
+```
+
+<h3>Build Life Cycle</h3>
+&emsp;&emsp; 关于delegate的生命周期，首先要介绍build的生命周期（Build Life Cycle）。Gradle的最终目的都是执行Gradle中的task —— （shell下执行gradle -task）。 gradle build 时会经历3个阶段：  
+
+1. **Initialization**: 生成Gradle对象和Settings对象，然后执行init.gradle，再执行settings.gradle，给每个module生成一个project对象。
+
+2. **Configuration**: 运行所有project对象对应的build.gradle（包括project和project下的各module，先执行project层次，再执行module层次）。这个阶段会去确定所有task以及task之间的关系。
+
+3. **Execution**:执行阶段，Gradle根据传来的task名字运行指定的task。  
+
+
+<h3>关于Gradle中的task</h3>  
+&emsp;&emsp; task之间可能存在dependsOn依赖关系，**依赖者想要执行，必须等被依赖者先执行**。所以执行依赖者的话会先执行被依赖者，但是
+
+<h3> 关于Gradle的dependencies</h3>  
+```groovy
+//这两处的dependencies{}中添加的依赖项目性质不同，一个是gradle本身Sync需要使用的，一个是项目运行时需要导入的包
+buildScript {
+    dependencies {
+        // 与下面的 implementation/compile 不同，这里添加gradle plugin只能使用classpath
+        classpath 'xxx'
+    }
+    ......
+}
+
+dependencies{
+    // compile与implementation区别：
+    // compile与某些高版本的gradle不兼容，所以一般尽量使用implementation
+    implementation 'xxxx'
+    compile 'xxxx'
+}
+```
+
+而官方文档是这样说明的：  
+I’m going to guess that you’re referencing compile and classpath within the dependencies {} block. If that is so, those are dependency Configurations. A configuration is simply a named set of dependencies. The compile configuration is created by the Java plugin. The classpath configuration is commonly seen in the buildSrc {} block where one needs to declare dependencies for the build.gradle, itself (for plugins, perhaps).
+
+
+classpath使用：  
+buildscript itself needs something to run, use classpath 
+
+compile/implementation使用：  
+your project needs something to run, use compile  
+
+**buildscript中的声明是gradle脚本自身需要使用的资源。可以声明的资源包括依赖项、第三方插件、maven仓库地址等；而在build.gradle文件中直接声明的依赖项、仓库地址等信息是项目自身需要的资源**  
+所以与dependencies类似的还有repositories。
