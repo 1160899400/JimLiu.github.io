@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Gradle 简介"
+title:  "Gradle"
 date:   2018-09-27 9:57:23 +0800
 tags:
 - Android
@@ -31,11 +31,10 @@ init script并不常用，通常为各种init.gradle文件。它可以对当前�
 
 
 <h5> Setting Script</h5>
-&emsp;&emsp; 每个Project的根目录下的Settings.gradle都是Setting Script。多module的project下，Settings.gradle是必须的。Settings Script的delegate是Settings对象，Settings对象的成员函数如下：  
+&emsp;&emsp; 每个Project的根目录下的Settings.gradle都是Setting Script。多module的project下，Settings.gradle是必须的。Settings Script的delegate是Settings对象，Settings对象的成员函数如下：
 
-![](F:\git_repository\Urt1rsLiu.github.io\assets\image\post\Android Gradle\org.gradle.api.initialization.Settings.PNG)
-<center>org.gradle.api.initialization.Settings的成员函数</center>
-
+![Settings API](../img/image_post/gradle/settings API.PNG)
+<center>org.gradle.api.initialization.Settings的成员</center>
 &emsp;&emsp; 可以看到其中的`include()`函数十分熟悉，没错，在settings.gradle中include ':app'导入module时，就是调用Settings对象的该方法。include函数参数为String数组，因此可以接受多个module，这个函数的意义就是指明哪些module参与project的构建。  
 <h5>Build Script</h5>
 &emsp;&emsp;最常见的就是各个目录下的build.gradle文件，观察对应的delegate对象的API，发现常用的函数有`apply()`、`dependencies()`、`buildscript()`、`repositories()`等。他们也都是将对象或闭包作为参数，然后delegate调用，如下:
@@ -73,7 +72,7 @@ dependencies{
 
 <h3>关于Gradle中的task</h3>  
 
-&emsp;&emsp; task之间可能存在dependsOn依赖关系，**依赖者想要执行，必须等被依赖者先执行**。所以执行依赖者的话会先执行被依赖者，再执行依赖者；但是**执行被依赖者不会导致依赖者执行**。  
+&emsp;&emsp; task之间可能存在dependsOn依赖关系，**依赖者想要执行，必须等被依赖者先执行**。所以执行依赖者的话会先执行被依赖者，再执行依赖者；但是执行被依赖者不会导致依赖者执行。  
 
 &emsp;&emsp; 
 
@@ -91,8 +90,7 @@ buildScript {
 
 dependencies{
     // compile与implementation区别：
-    // 某些高版本的gradle不兼容compile，高版本的gradle使用了 api 来替代compile
-    // implementation不会导入第三方库compile/Implementation的库，所以一般尽量使用implementation
+    // compile与某些高版本的gradle不兼容，所以一般尽量使用implementation
     implementation 'xxxx'
     compile 'xxxx'
 }
