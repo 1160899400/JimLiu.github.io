@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "how to release Android channel apk"
+title:  "How to release Android channel apk"
 date:   2018-09-27 9:57:23 +0800
 tags:
 - Android
