@@ -91,10 +91,12 @@ buildScript {
 
 dependencies{
     // compile与implementation区别：
-    // 某些高版本的gradle不兼容compile，高版本的gradle使用了 api 来替代compile
-    // implementation不会导入第三方库compile/Implementation的库，所以一般尽量使用implementation
+    // implementation不会导入第三方库compile/Implementation的库，而compile会
+    // 某些高版本的gradle弃用了compile，gradle 3.0以上推荐使用 api 来替代compile
+    // 一般尽量使用implementation而不是compile,避免间接导入的库发生冲突
     implementation 'xxxx'
     compile 'xxxx'
+    api 'xxxx'
 }
 ```
 
@@ -111,5 +113,4 @@ compile/implementation使用：
 
 your project needs something to run, use compile  
 
-**buildscript中的声明是gradle脚本自身需要使用的资源。可以声明的资源包括依赖项、第三方插件、maven仓库地址等；而在build.gradle文件中直接声明的依赖项、仓库地址等信息是项目自身需要的资源**  
-所以与dependencies类似的还有repositories。
+**buildscript中的声明是gradle脚本自身需要使用的资源。可以声明的资源包括依赖项、第三方插件、maven仓库地址等；而在build.gradle文件中直接声明的依赖项、仓库地址等信息是项目自身需要的资源。**  
