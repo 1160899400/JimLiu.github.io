@@ -7,12 +7,13 @@ tags:
 - Android
 - Jetpack
 - Architecture Components
+typora-root-url: ..
 ---
 
 &emsp;&emsp;作为Android 7.0的新特性，app支持在Launcher界面长按icon呼出菜单（shortcuts），例如图：  
-<center>
-<img src = "../assets/image/post/Android/android shortcuts.jpg"  style="zoom:25%" />
-</center>
+
+<img src = "/images/post/Android/android shortcuts.jpg"  style="zoom:25%" algin = center/>
+
 
 &emsp;&emsp;整个菜单被官方称为shortcuts，菜单里的选项称为shortcut，参照[Android官方shortcuts Guide介绍](https://developer.android.com/guide/topics/ui/shortcuts/)。下面根据官方推荐的做法介绍下shortcuts的基本使用:  
 
