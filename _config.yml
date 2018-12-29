@@ -41,7 +41,7 @@ SNS-icon: #['Facebook', 'weibo', 'qq', 'github', 'Dribbble', 'Twitter', 'instagr
   #twitch: ''
 
 # 分页
-paginate: 6
+paginate: 4
 paginatepath: ['page:num']
 
 # since
@@ -49,14 +49,15 @@ footer:
   since: 2018
 
 # Markdown
+gems: [jekyll-paginate, jekyll-gist]
 markdown: kramdown
 kramdown:
   input: GFM
-# syntax_highlighter: rouge
+  syntax_highlighter: rouge
 # 代码高亮 使用rouge
-  highlighter: rouge
+# highlighter: rouge
 # 代码高亮主题使用pygments主题: autumn\ default\ emacs\ friendly\ manni\ murphy\ pastie\ perldoc\ tango 任选一个你喜欢的主题名称填在下面的单引号中
-  pygmentsTheme: 'tango'
+#  pygmentsTheme: 'tango'
 
 # 友情链接
 friends:
