@@ -11,8 +11,7 @@ tags:
 
 &emsp;&emsp;作为Android 7.0的新特性，app支持在Launcher界面长按icon呼出菜单（shortcuts），例如图：  
 
-<Img src = "https://urt1rsliu.github.io/images/post/Android/androidShortcuts.jpg"  style="zoom:25%" algin = center />
-
+![](https://urt1rsliu.github.io/images/post/Android/androidShortcuts.jpg)
 
 &emsp;&emsp;整个菜单被官方称为shortcuts，菜单里的选项称为shortcut，参照[Android官方shortcuts Guide介绍](https://developer.android.com/guide/topics/ui/shortcuts/)。下面根据官方推荐的做法介绍下shortcuts的基本使用:  
 
