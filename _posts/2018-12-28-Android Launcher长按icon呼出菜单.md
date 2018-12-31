@@ -114,7 +114,7 @@ shortcutManager.setDynamicShortcuts(Arrays.asList(shortcut));
 4. 调用`updateShortcuts()`更新。
 
 &emsp;&emsp;实例如下：
-~~~ruby
+~~~java
 ShortcutManager mShortcutManager =
         context.getSystemService(ShortcutManager.class);
 
