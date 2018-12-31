@@ -61,9 +61,9 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 # 代码高亮 使用rouge
-  highlighter: rouge
+# highlighter: rouge
 # 代码高亮主题使用pygments主题: autumn\ default\ emacs\ friendly\ manni\ murphy\ pastie\ perldoc\ tango 任选一个你喜欢的主题名称填在下面的单引号中
-  pygmentsTheme: 'autumn'
+# pygmentsTheme: 'autumn'
 
 # 友情链接
 friends:
