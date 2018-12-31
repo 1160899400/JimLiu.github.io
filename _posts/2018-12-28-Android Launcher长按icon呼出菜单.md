@@ -35,7 +35,7 @@ tags:
 ##### 创建static shorcuts
 1. 在AndroidManifest.xml下找到你的启动activity，在\<activity\>\</activity\>下添加\<meta-data\>如下：
 
-~~~ruby
+~~~xml
 	<meta-data android:name="android.app.shortcuts"
                android:resource="@xml/shortcuts" /> 
 ~~~
@@ -43,7 +43,7 @@ tags:
 2.然后创建一个资源文件shortcuts.xml，放在res/xml/ 目录下 
 3.往这个资源文件的\<shortcuts\>根节点添加\<shortcut\>节点，\<shortcut\>节点内可以指定一个或多个intent，含有多个intent时，显示最后一个intent对应的内容，shortcut 节点示例如下：
 
-~~~ruby
+~~~xml
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
   <shortcut
     android:shortcutId="compose"
@@ -88,7 +88,7 @@ tags:
 3. **Remove**:`removeDynamicShortcuts()`移除一系列shortcuts，`removeAllDynamicShortcuts()`移除所有shortcuts。
 
 &emsp;&emsp;下面是具体使用实例：  
-~~~ruby
+~~~java
 //ShortcutManager shortcutManager = getSystemService(Context.SHORTCUT_SERVICE);
 ShortcutManager shortcutManager = getSystemService(ShortcutManager.class);
 
@@ -114,7 +114,7 @@ shortcutManager.setDynamicShortcuts(Arrays.asList(shortcut));
 4. 调用`updateShortcuts()`更新。
 
 &emsp;&emsp;实例如下：
-~~~ruby
+~~~java
 ShortcutManager mShortcutManager =
         context.getSystemService(ShortcutManager.class);
 
