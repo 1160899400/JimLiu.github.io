@@ -24,7 +24,7 @@ categories: Android
 &emsp;&emsp;实际上，通俗地说，可以这么理解，外部存储就是手机上的File System的根目录sdcard，打开手机的文件管理，里面的文件夹都属于外部存储，都位于手机的sdcard目录下。
 &emsp;&emsp;接下来继续介绍sdcard目录，在Android Studio上的Device File Explorer上可以看到包括外部存储和内部存储。如图，其中data属于内部存储，sdcard是外部存储。但在图中发先不可思议的是有2个sdcard目录，那外部存储到底指的是哪个sdcard目录呢？  
 
-![android手机内外存储系统](https://urt1rsliu.github.io/images/post/android/android文件内部存储和外部存储_1.PNG)  
+![android手机内外存储系统](https://urt1rsliu.github.io/images/post/Android/android文件内部存储和外部存储.PNG)  
 
 <center>图1.android手机内外存储系统</center>   
 
