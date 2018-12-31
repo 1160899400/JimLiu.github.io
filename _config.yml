@@ -54,9 +54,13 @@ footer:
   
   
 # Markdown
-gems: [jekyll-paginate, jekyll-gist]
+# gems: [jekyll-paginate, jekyll-gist]
+plugins:
+    - jekyll-paginate
+    - jekyll-gist
 markdown: kramdown
 kramdown:
+  input: GFM
   syntax_highlighter: rouge
 # 代码高亮 使用rouge
   highlighter: rouge
