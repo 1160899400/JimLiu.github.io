@@ -5,7 +5,7 @@ description: 'your web description'
 keywords: 'Android,kotlin'
 url: 'https://urt1rsliu.github.io' #your host
 page-title: 'Github blog of Jim Liu'
-description: '本人刘鸿志，Android工程师，2018年毕业于武汉大学，本科生，现任职于深圳，喜欢接触并记录Android开发相关的知识，学习各种框架，如有问题，可qq 1160899400私聊'
+description: '本人刘鸿志，Android工程师，2018年毕业于武汉大学，本科生，现任职于深圳。\n 喜欢接触并记录Android开发相关的知识，如有问题，可qq 1160899400私聊'
 
 # nav 中文字符空格：&emsp;
 nav: # 最佳体验 六个标签 且最好每个标签不超过4中文字
