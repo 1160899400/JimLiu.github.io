@@ -48,6 +48,7 @@
 
 &emsp;&emsp;还有Cache-Control通常用来设置Request的缓存，Cache-Control后面通常用max-age表示当前request的剩余过期时间。这里需要对request的缓存作一个简单的介绍：考虑到效率问题，Http协议在设置了缓存的情况下，会把每次请求都缓存下来，当下一次request与当前request相同时，则会复用上次request后返回的结果，而不会重新发送。当然每个request缓存都是有"保质期"的，max-age就是当前时间下request缓存的保质期，如果max-age为0，就会重新发送请求。  
 
-&emsp;&emsp;还有Content-Type，这里Content-Type值不同，会导致Request Body的格式不同，所以通过Http报文发送不同类型的数据时，应该选择不同的Content-Type。常见的Content-Type有如下几种：   
+&emsp;&emsp;还有Content-Type，这里Content-Type值不同，会导致Request Body的格式不同，所以通过Http报文发送不同类型的数据时，应该选择不同的Content-Type。Content-Type值很多，常见的Content-Type有如下几种：   
 
-1. 
+1. application/s-form-urlencoded，Http默认的Content-Type，会将body里的内容编码为键值对。
+2. 
